@@ -17,10 +17,12 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Import routes
 const productRoutes = require('./routes/products');
 const authRoutes = require('./routes/auth'); // Import the auth routes
+const profileRoutes = require('./routes/profile'); // Import the profile routes
 
 // Use routes
 app.use('/products', productRoutes);
 app.use('/auth', authRoutes); // Use the auth routes
+app.use('/profile', profileRoutes); // Use the profile routes
 
 app.get('/', (req, res) => {
     res.send('Welcome to the eCommerce API');
