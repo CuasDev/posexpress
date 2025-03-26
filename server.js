@@ -1,9 +1,16 @@
 require('dotenv').config(); // Load environment variables
+const cors = require('cors');
 const express = require('express');
 const connectDB = require('./db'); // Import the database connection
 const { swaggerUi, swaggerDocs } = require('./swagger'); // Import Swagger setup
 const app = express(); 
 const port = 3000; 
+
+// Enable CORS for all routes
+app.use(cors({
+    origin: '*', // Allow requests from any origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
+}));
 
 // Connect to MongoDB
 connectDB();
